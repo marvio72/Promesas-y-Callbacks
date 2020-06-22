@@ -4,11 +4,6 @@ const heroesIds = ['capi','iron','spider'];
 
 export const obtenerHeroesArr = async() => {
 
-  const heroesArr = [];
+  return  await Promise.all(heroesIds.map( buscarHeroe));
 
-  for ( const id of heroesIds ){
-    heroesArr.push(buscarHeroe(id));
-  }
-
-  return await Promise.all(heroesArr);
 };
