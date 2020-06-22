@@ -13,6 +13,18 @@ const heroes = {
   },
 };
 
+export const buscarHeroeAsync = async(id) => {
+
+  const heroe = heroes[id];
+  
+    if (heroe) {
+      return heroe;
+    } else {
+      throw `No exitste un héroe con el id ${id}`;
+    }
+  
+};
+
 export const buscarHeroe = (id) => {
 
   const heroe = heroes[id];
@@ -25,7 +37,7 @@ export const buscarHeroe = (id) => {
       reject(`No exitste un héroe con el id ${id}`);
     }
   });
-}
+};
 
 const promesaLenta = new Promise((resolve, reject)=>{
   setTimeout(() =>  resolve('Promesa Lenta'), 2000);
@@ -37,7 +49,7 @@ const promesaMedia = new Promise((resolve, reject)=>{
 
 //al ser esta promesa la más rapida promise.race siempre la evalua y ejecuta.
 const promesaRapida = new Promise((resolve, reject)=>{
-  setTimeout(() =>  reject('Promesa Rápida'), 1000);
+  setTimeout(() =>  resolve('Promesa Rápida'), 1000);
 });
 
 export{
